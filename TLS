@@ -1,0 +1,32 @@
+There are two types of Encryptions
+    1. Assymetric Encryptions
+    2. Symmetric Encryptions
+
+Assymetric Encryptions
+    In Assymetric Encryptions, Two keys are used. Public key and Private Key.
+    Server generates private and public keys and shares Public key with Client(Browser).
+
+    CLient uses Public Key to enctrypt Content and sends across the network,. Server decreypts this content using its private key.
+
+Symmetric Encryptions
+    In Symmetric Encryptions, Only one key is used.
+    Client and server used single key o enctrypt and dectrypt data.
+
+
+TLS/SSL
+Generic Flow
+
+SKEY => Session Key
+PUBKEY => Public Key
+PRIKEY => Privite Key
+
+    Client              ----          `  Server creates Public(PUBKEY) and Privite(PRIKEY) keys                                ----             Server
+    Client              <---             Server  shares PUBKEY with Client                                                     <---             Server
+    Client              ----             Client Creates Single Session(SKEY) Key                                               ----             Server
+    Client              --->             Client Encrypts SKEY with Servers PUBKEY and sends to Server                          --->             Server
+    Client              ----             Server Uses  PRIKRY to decrypt the SKEY which is sent by Client                       --->             Server
+    Client              ----             Server and Client communicates with shared SKEY untill it wont expire                 ----             Server
+    Client              --->             Client send data by encryptiong it with SKEY                                          --->             Server
+    Client              ----             Server Decrypts data by using SKEY                                                    ----             Server
+    Client              <---             Server Sends data by encrypting using SKEY                                            <---             Server
+    Client              ----             Client Decrypts data by using SKEY                                                    ----             Server
